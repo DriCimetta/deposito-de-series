@@ -19,16 +19,16 @@ public class LoginAuthentication implements Serializable
 	
 	@Column(unique=true)
 	private String login;
-	private String senha;
+	private String password;
 
 	public LoginAuthentication()
 	{}
 
-	public LoginAuthentication(String login, String senha)
+	public LoginAuthentication(String login, String password)
 	{
 		super();
 		this.login = login;
-		this.senha = senha;
+		this.password = password;
 	}
 
 	public String getLogin()
@@ -41,14 +41,14 @@ public class LoginAuthentication implements Serializable
 		this.login = login;
 	}
 
-	public String getSenha()
+	public String getPassword()
 	{
-		return senha;
+		return password;
 	}
 
-	public void setSenha(String senha)
+	public void setPassword(String password)
 	{
-		this.senha = senha;
+		this.password = password;
 	}
 
 	@Override

@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.tab.depositodeseries.domain.LoginAuthentication;
 
 public interface LoginAuthenticationRepository extends JpaRepository<LoginAuthentication, String> {
-	LoginAuthentication findByLoginAndSenha(String login, String senha);
+	LoginAuthentication findByLoginAndPassword(String login, String password);
 }

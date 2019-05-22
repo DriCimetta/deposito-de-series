@@ -8,50 +8,50 @@ public class UserSignUpRequest extends BaseRequest
 	private static final long serialVersionUID = -7392415793025320894L;
 
 	@NotBlank
-	private String nomeUsuario;
+	private String userName;
 	@NotBlank
 	@Email
-	private String emailUsuario;
+	private String userEmail;
 	@NotBlank
 	private String login;
 	@NotBlank
-	private String senha;
+	private String password;
 
 	public UserSignUpRequest()
 	{
-		this.nomeUsuario = null;
-		this.emailUsuario = null;
+		this.userName = null;
+		this.userEmail = null;
 		this.login = null;
-		this.senha = null;
+		this.password = null;
 	}
 
-	public UserSignUpRequest(String nomeUsuario, String emailUsuario, String login, String senha)
+	public UserSignUpRequest(String userName, String userEmail, String login, String password)
 	{
 		super();
-		this.nomeUsuario = nomeUsuario;
-		this.emailUsuario = emailUsuario;
+		this.userName = userName;
+		this.userEmail = userEmail;
 		this.login = login;
-		this.senha = senha;
+		this.password = password;
 	}
 
-	public String getNomeUsuario()
+	public String getUserName()
 	{
-		return nomeUsuario;
+		return userName;
 	}
 
-	public void setNomeUsuario(String nomeUsuario)
+	public void setUserName(String userName)
 	{
-		this.nomeUsuario = nomeUsuario;
+		this.userName = userName;
 	}
 
-	public String getEmailUsuario()
+	public String getUserEmail()
 	{
-		return emailUsuario;
+		return userEmail;
 	}
 
-	public void setEmailUsuario(String emailUsuario)
+	public void setUserEmail(String userEmail)
 	{
-		this.emailUsuario = emailUsuario;
+		this.userEmail = userEmail;
 	}
 
 	public String getLogin()
@@ -64,13 +64,13 @@ public class UserSignUpRequest extends BaseRequest
 		this.login = login;
 	}
 
-	public String getSenha()
+	public String getPassword()
 	{
-		return senha;
+		return password;
 	}
 
-	public void setSenha(String senha)
+	public void setPassword(String password)
 	{
-		this.senha = senha;
+		this.password = password;
 	}
 }

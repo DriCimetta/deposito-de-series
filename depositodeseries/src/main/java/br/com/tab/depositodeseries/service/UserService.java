@@ -2,6 +2,8 @@ package br.com.tab.depositodeseries.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +28,7 @@ public class UserService
 	@Autowired
 	private LoginAuthenticationRepository loginAuthenticationRepository;
 
+	@Transactional
 	public UserSignUpResponse executeUserSignUp(UserSignUpRequest userSignUpRequest)
 	{
 		UserSignUpResponse userSignUpResponse = null;
@@ -35,12 +38,12 @@ public class UserService
 			try
 			{
 				String login = userSignUpRequest.getLogin();
-				String senha = userSignUpRequest.getSenha();
-				LoginAuthentication loginAuthentication = new LoginAuthentication(login, senha);
+				String password = userSignUpRequest.getPassword();
+				LoginAuthentication loginAuthentication = new LoginAuthentication(login, password);
 
-				String nomeUsuario = userSignUpRequest.getNomeUsuario();
-				String emailUsuario = userSignUpRequest.getEmailUsuario();
-				User user = new User(null, nomeUsuario, emailUsuario, loginAuthentication);
+				String userName = userSignUpRequest.getUserName();
+				String userEmail = userSignUpRequest.getUserEmail();
+				User user = new User(null, userName, userEmail, loginAuthentication);
 
 				loginAuthenticationRepository.save(loginAuthentication);
 				User userSaved = userRepository.save(user);
@@ -68,20 +71,19 @@ public class UserService
 	public UserSignInResponse executeUserSignIn(UserSignInRequest userSignInRequest)
 	{
 		UserSignInResponse userSignInResponse = null;
-		
+
 		String login = userSignInRequest.getLogin();
-		String senha = userSignInRequest.getSenha();
-		LoginAuthentication authenticated = loginAuthenticationRepository.findByLoginAndSenha(login, senha);
-		
+		String password = userSignInRequest.getPassword();
+		LoginAuthentication authenticated = loginAuthenticationRepository.findByLoginAndPassword(login, password);
+
 		if (authenticated != null)
 		{
 			userSignInResponse = new UserSignInResponse(ReturnCode.OK, true);
-		}
-		else
+		} else
 		{
 			userSignInResponse = new UserSignInResponse(ReturnCode.GENERAL_ERROR, false);
 		}
-		
+
 		return userSignInResponse;
 	}
 }

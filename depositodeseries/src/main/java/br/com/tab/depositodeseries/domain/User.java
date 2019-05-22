@@ -18,23 +18,23 @@ public class User implements Serializable
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	private String nome;
+	private String name;
 	private String email;
 	
 	@OneToOne
 	@JoinColumn(name="login_id")
-	private LoginAuthentication acesso;
+	private LoginAuthentication loginAuthentication;
 
 	public User()
 	{}
 
-	public User(Integer id, String nome, String email, LoginAuthentication acesso)
+	public User(Integer id, String name, String email, LoginAuthentication loginAuthentication)
 	{
 		super();
 		this.id = id;
-		this.nome = nome;
+		this.name = name;
 		this.email = email;
-		this.setAcesso(acesso);
+		this.setLoginAuthentication(loginAuthentication);
 	}
 
 	public Integer getId()
@@ -47,14 +47,14 @@ public class User implements Serializable
 		this.id = id;
 	}
 
-	public String getNome()
+	public String getName()
 	{
-		return nome;
+		return name;
 	}
 
-	public void setNome(String nome)
+	public void setName(String name)
 	{
-		this.nome = nome;
+		this.name = name;
 	}
 
 	public String getEmail()
@@ -67,14 +67,14 @@ public class User implements Serializable
 		this.email = email;
 	}
 
-	public LoginAuthentication getAcesso()
+	public LoginAuthentication getLoginAuthentication()
 	{
-		return acesso;
+		return loginAuthentication;
 	}
 
-	public void setAcesso(LoginAuthentication acesso)
+	public void setLoginAuthentication(LoginAuthentication loginAuthentication)
 	{
-		this.acesso = acesso;
+		this.loginAuthentication = loginAuthentication;
 	}
 
 	@Override
