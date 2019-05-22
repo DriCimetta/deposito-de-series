@@ -3,7 +3,7 @@ Projeto para um site de depósito de séries
 
 ## Authors
 * Bruno Vedoveto Leandro (@bleandro)
-* Adriane Cimetta ()
+* Adriane Cimetta (@DriCimetta)
 * Thaís Rezende ()
 
 ## Description
